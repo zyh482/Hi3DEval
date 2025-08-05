@@ -1,0 +1,88 @@
+option = {
+  // title: {
+  //   text: 'Image-to-3D Leaderborad'
+  // },
+  textStyle: {
+    color: 'black',
+    fontStyle: 'bold',
+    fontSize: 22,
+    // fontFamily: "Courier New",
+  },
+  
+  legend: {
+    orient: 'horizontal',
+    data: ['Hunyuan3D 2.0', 'TRELLIS', 'SPAR3D', "TripoSR", "InstantMesh", "CRM", "Unique3D", "OpenLRM"],
+    bottom: 10,
+    width: 500,
+    // itemGap:10,
+    // align: center,
+    textStyle: {
+      // fontWeight: 'bold', 
+      fontSize: 18,
+      // lineHeight: 10,
+    }
+  },
+  
+  // color: ['#1a9850', '#66bd63', '#4393c3', '#74add1', '#b2abd2', '#fdae61', '#f46d43', '#d73027'],
+  radar: {
+    shape: 'circle',
+    center: ['50%', '45%'],
+    indicator: [
+      // { name: 'Overall', min: 10, max: 18},
+      // { name: 'Geometry\nPlausibility', min: 3, max: 7},
+      // { name: 'Geometry\nDetails', min: 1.5, max: 3},
+      // { name: 'Texture Quality', min: 1.5, max: 3},
+      // { name: 'Geo.-Tex.\nCoherence', min: 0.5, max: 1},
+      // { name: 'Prompt-3D\nAlignment', min: 2, max: 3.7},
+      { name: 'Overall', min: 11, max: 16.2},
+      { name: 'Geometry\nPlausibility', min: 3.7, max: 6.3},
+      { name: 'Geometry\nDetails', min: 2.2, max: 2.73},
+      { name: 'Texture Quality', min: 1.9, max: 2.77},
+      { name: 'Geo.-Tex.\nCoherence', min: 0.7, max: 1},
+      { name: 'Prompt-3D\nAlignment', min: 2.2, max: 3.52},
+    ]
+  },
+  series: [
+    {
+      name: 'Budget vs spending',
+      type: 'radar',
+      lineStyle: {
+        width: 4,
+      },
+      data: [
+        {
+          value: [16.1988,6.2919,2.7215,2.7644,0.9876,3.4334],
+          name: 'Hunyuan3D 2.0',
+        },
+        {
+          value: [15.1989,5.8626,2.392,2.4693,0.9702,3.5048],
+          name: 'TRELLIS'
+        },
+        {
+          value: [15.0014,5.7791,2.3031,2.4749,0.9601,3.4842],
+          name: 'SPAR3D'
+        },
+        {
+          value: [14.3404,5.2216,2.4225,2.3758,0.9562,3.3643],
+          name: 'TripoSR'
+        },
+        {
+          value: [14.2775,5.4242,2.2252,2.3063,0.9587,3.363],
+          name: 'InstantMesh'
+        },
+        {
+          value: [13.5572,4.745,2.2991,2.3777,0.9164,3.219],
+          name: 'CRM'
+        },
+        {
+          value: [13.1897,4.9288,2.3233,1.9627,0.776,3.1989],
+          name: 'Unique3D'
+        },
+        {
+          value: [11.2608,3.7754,2.2614,2.0922,0.902,2.2298],
+          name: 'OpenLRM'
+        }
+      ]
+    }
+  ]
+};

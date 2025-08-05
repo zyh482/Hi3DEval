@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hi3DEval: Advancing 3D Generation Evaluation with Hierarchical Validity</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Hi3DEval: Advancing 3D Generation Evaluation with Hierarchical Validity</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Yuhan Zhang<sup>* 1,2</sup>,</span>
+            <span class="author-block">
+                <a href="https://zhuolong3.github.io/">Long Zhuo</a><sup>* 2</sup>,</span>
+            <span class="author-block">
+              Ziyang Chu<sup>* 2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://wutong16.github.io/">Tong Wu</a><sup>† 4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lizb6626.github.io/">Zhibing Li</a><sup>2,5</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN">Liang Pan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://dahua.site/">Dahua Lin</a><sup>2,5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>† 6</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">(* equal contributions, † corresponding authors)</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Fudan University</span>
+            <span class="author-block"><sup>2</sup>Shanghai Artificial Intelligence Laboratory</span>
+            <span class="author-block"><sup>3</sup>Tsinghua University</span>
+            <span class="author-block"><sup>4</sup>Stanford University</span>
+            <span class="author-block"><sup>5</sup>The Chinese University of Hong Kong</span>
+            <span class="author-block"><sup>6</sup>S-Lab, Nanyang Technological University</span>
+          </div>
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"> * These authors contributed equally to this work.</span>
+            <span class="author-block"> † Corresponding author.</span>
+          </div> -->
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Leaderboard Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/3DTopia/3DGen-Leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-trophy"></i>
+                  </span>
+                  <span>Leaderboard</span>
+                  </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(Coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data(Coming soon)</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- style="width: 75%; margin: 0 auto;" -->
+<section class="teaser">    
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.png">
+      <h2 class="subtitle has-text-centered">
+        <b>Overview of Hi3DEval</b>, a unified framework for 3D generation evaluation with three key components:
+        <b>1) Hierarchical evaluation protocols</b> that jointly assess object-level and part-level quality, with extended material evaluation via reflectance cues.
+        <b>2) A large-scale benchmark</b>> featuring a diverse set of 3D generative models, and extensive human-aligned annotations generated via a multi-agent, multi-modal LLMs pipeline.
+        <b>3) A hybrid automated scoring system</b> that integrates video-based and naive 3D-based representations to enhance evaluators' perceptions of 3D structure.
+        <!-- <b>Overview of Hi3DEval</b>, a hierarchical 3D evaluation framework that incorporates object-level and part-level evaluation and extends material assessment with reflective cues. 
+        It consists of two main components: 
+        1) A large-scale dataset with various curation processes and an automated annotation pipeline compatible with hierarchical evaluation. 
+        2) A hybrid scoring system based on hybrid 3D representations. -->
+      </h2>
+    </div>
+  </div>
+  
+  <!-- <div class="container is-max-desktop"> -->
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="demo" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+
+</section>
+
+
+<section class="section">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-quarters">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            Despite rapid advances in 3D content generation, quality assessment for the generated 3D assets remains challenging.
+            Existing methods mainly rely on image-based metrics and operate solely at the object level, limiting their ability to capture spatial coherence, material authenticity, and high-fidelity local details.
+            <br>
+            1) To address these challenges, we introduce <b>Hi3DEval</b>, a hierarchical evaluation framework tailored for 3D generative content. 
+            It combines both object-level and part-level evaluation, enabling holistic assessments across multiple dimensions as well as fine-grained quality analysis. 
+            Additionally, we extend texture evaluation beyond aesthetic appearance by explicitly assessing material realism, focusing on attributes such as albedo, saturation, and metallicness. 
+            <br>
+            2) To support this framework, we construct <b>Hi3DBench</b>, a large-scale dataset comprising diverse 3D assets and high-quality annotations, accompanied by a reliable multi-agent annotation pipeline.
+            We further propose a 3D-aware automated scoring system based on hybrid 3D representations. 
+            Specifically, we leverage video-based representations for object-level and material-subject evaluations to enhance modeling of spatio-temporal consistency and employ pretrained 3D features for part-level perception.
+            Extensive experiments demonstrate that our approach outperforms existing image-based metrics in modeling 3D characteristics and achieves superior alignment with human preference, providing a scalable alternative to manual evaluations.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="column has-text-centered is-centered">
+    <h2 class="title is-3">Leaderboard</h2>
+  <!-- </div> -->
+
+  <div class="columns has-text-centered is-centered" style="width: 80%; margin: auto;">
+    <div class="column is-half">
+        <h3 class="title is-4">Text-to-3D Generative Models</h3>
+        <img src="./static/images/radar_object_text2shape.png">
+    </div>
+    <div class="column is-half">
+        <h3 class="title is-4">Image-to-3D Generative Models</h3>
+        <img src="./static/images/radar_object_image2shape.png">
+    </div>
+  </div> 
+
+  <!-- <div class="column is-centered"> -->
+    <!-- <h2 class="title is-3">Leaderboard</h2> -->
+    <iframe
+    src="https://3DTopia-3DGen-leaderboard.hf.space"
+    frameborder="0"
+    width=80%
+    height="700"
+    ></iframe>
+  </div>
+
+</section>
+
+
+
+<section class="section">
+  <div class="columns is-max-desktop has-text-centered">
+    <div class="column is-centered">
+      <h2 class="title is-3">Visualizations of Hierarchical Evaluation</h2>
+    </div>
+  </div>
+
+
+  <!-- Visual Results -->
+  <div class="container is-fluid" style="display: flex; justify-content: center;"> 
+    <div class="column is-three-quarters">
+
+      <h3 class="title is-4" >Object-Level Evaluation</h3>
+
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline >
+              <source src="./static/videos/object_GP.mp4" type="video/mp4">
+            </video>
+          </div>
+          
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/object_GD.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/object_TQ.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/object_GTC.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/object_PA.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+      <h3 class="title is-4" style="margin-top: 1.5rem;">Part-Level Evaluation</h3>
+
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+
+            <div class="item">
+            <video src="./static/videos/part_GP.mp4" autoplay controls muted loop playsinline width="100%"></video>
+            </div>
+
+            <div class="item">
+                <video src="./static/videos/part_GD.mp4" autoplay controls muted loop playsinline width="100%"></video>
+                </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4" style="margin-top: 1.5rem;">Material-Subject Evaluation</h3>
+
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+
+            <div class="item">
+            <video src="./static/videos/material_CA.mp4" autoplay controls muted loop playsinline width="50%"></video>
+            </div>
+            
+            <div class="item">
+            <video src="./static/videos/material_CS.mp4" autoplay controls muted loop playsinline width="50%"></video>
+            </div>
+
+            <div class="item">
+            <video src="./static/videos/material_DC.mp4" autoplay controls muted loop playsinline width="50%"></video>
+            </div>
+
+            <div class="item">
+            <video src="./static/videos/material_MP.mp4" autoplay controls muted loop playsinline width="50%"></video>
+            </div>
+
+        </div>
+      </div>
+            
+
+        <!-- </div> -->
+      <!-- </div> -->
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/3DTopia/3DGen-Bench" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This project page is based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">
+                                                Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
